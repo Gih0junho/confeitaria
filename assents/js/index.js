@@ -1,10 +1,10 @@
 // Lista de imagens
 let imagens = [
-    'assents/img/images(1).jfif',
-    'assents/img/images (2).jfif',
-    'assents/img/images(3).jpg',
-    'assents/img/images(4).jfif',
-    'assents/img/images(5).jfif'
+    'assents/img/',
+    'assents/img/Captura de tela 2025-09-26 111236.png',
+    'assents/img/Captura de tela 2025-09-26 111255.png',
+    'assents/img/Captura de tela 2025-09-26 111313.png',
+    'assents/img/Captura de tela 2025-09-26 111329.png'
 ];
 
 // Índice da imagem atual
