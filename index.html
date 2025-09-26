@@ -1,49 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confeitaria Sempre Doce</title>
     <link rel="stylesheet" href="assents/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-    <div class="container">
-        <h1>Confeitaria Sempre Doce</h1>
-        <!-- Navigation Menu -->
+<header>
+    
+        <h1 class="titulo-central">Confeitaria Sempre Doce</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sobre.html">About Us</a></li>
-                <li><a href="cardapio.html">Products</a></li>
-                <li><a href="contato.html">Contact</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#products">Produtos</a></li>
+                <li><a href="#contact">Contato</a></li>
             </ul>
+        </nav>
+        <!-- Botões no canto superior direito -->
+    <div class="header-botoes">
+        <a href="login.html" class="btn-login">Login</a>
+        <a href="admin.html" class="btn-admin">Admin</a>
     </div>
+ 
 </header>
-<!--- Carrosel de imagens --->
-<section class="Carrosel"><div>
-    <img id="img-carrosel" src="" alt="">
-</div></section>
 
 
-<!--- Sobre nos --->
+<br>
+
+    <!-- Carrossel de imagens -->
+    <section class="Carrosel">
+        <div>
+            <img id="img-carrosel" src="" alt="Banner da confeitaria">
+        </div>
+    </section>
+<br>
+<br>
+<br>
+   <!-- Sobre Nós -->
 <section class="sobre">
-    <div class="container">
-        <h2>Sobre Nós</h2>
-        <p>Somos uma confeitaria dedicada a criar bolos deliciosos e personalizados para todas as 
-            <br>ocasioes. Nossa paixão pela confeitaria é refletida em criação que sai da nossa cozinha!</p>
+    <h2>Sobre Nós</h2>
+    <p>
+        A Confeitaria Sempre Doce nasceu do sonho de transformar momentos em lembranças doces e especiais. Somos apaixonados pela arte de confeitar e dedicamos cada receita para encantar nossos clientes, seja em pequenas reuniões ou grandes celebrações.
+    </p>
+    <br>
+    <p>
+        Nosso diferencial está na produção artesanal: utilizamos ingredientes frescos e selecionados, respeitando tradições e inovando com criatividade. Cada bolo, doce e sobremesa é feito com carinho, atenção aos detalhes e busca constante pela excelência.
+    </p><br>
+    <p>
+        Valorizamos o atendimento personalizado, ouvindo cada cliente para criar experiências únicas e saborosas. Nossa missão é adoçar a vida das pessoas, levando alegria, afeto e qualidade em cada produto.
+    </p><br>
+    <p>
+        Venha conhecer a Sempre Doce e descubra como podemos tornar seu evento ainda mais especial. Aqui, cada doce conta uma história e cada cliente faz parte da nossa!
+    </p>
+</section>
+
+    <!-- Cardápio -->
+    <section class="cardapio">
+        <div class="container">
+            <h2>Nosso Cardápio</h2>
+            <div class="produtos">
+                <div class="produto">
+                    <img src="assents/img/BOLO DE CHOCOLATE.jpg" alt="Bolo de Chocolate">
+                    <h3>Bolo de Chocolate</h3>
+                    <p>Delicioso bolo de chocolate com cobertura de ganache.</p>
+                </div>
+                <div class="produto">
+                    <img src="assents/img/BOLO DE MORANGO.jpg" alt="Bolo de Morango">
+                    <h3>Bolo de Morango</h3>
+                    <p>Bolo de baunilha recheado com morangos frescos e chantilly.</p>
+                </div>
+                <div class="produto">
+                    <img src="assents/img/BOLO DE RED VELVET.webp" alt="Bolo Red Velvet">
+                    <h3>Bolo Red Velvet</h3>
+                    <p>Clássico bolo Red Velvet com cream cheese frosting.</p>
+                </div>
+                <!-- Adicione dentro do .produtos -->
+<div class="produto">
+    <img src="assents/img/bolo de liamo.webp" alt="Bolo de Limão">
+    <h3>Bolo de Limão</h3>
+    <p>Bolo leve com cobertura de glacê de limão siciliano.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/brigadeiro.jpg" alt="Brigadeiro Gourmet">
+    <h3>Brigadeiro Gourmet</h3>
+    <p>Brigadeiro feito com chocolate belga e confeitos especiais.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/torta de maca.jpg" alt="Torta de Maçã">
+    <h3>Torta de Maçã</h3>
+    <p>Torta crocante recheada com maçãs frescas e canela.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/cheesecake de fruta vermelhas.png" alt="Cheesecake de Frutas Vermelhas">
+    <h3>Cheesecake de Frutas Vermelhas</h3>
+    <p>Cheesecake cremoso com calda de frutas vermelhas.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/palha italiana.webp" alt="Palha Italiana">
+    <h3>Palha Italiana</h3>
+    <p>Doce tradicional feito com brigadeiro e biscoito.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/mousse de maracuja.webp" alt="Mousse de Maracujá">
+    <h3>Mousse de Maracujá</h3>
+    <p>Mousse leve e refrescante com polpa natural de maracujá.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/bem casadi.jpg" alt="Bem Casado">
+    <h3>Bem Casado</h3>
+    <p>Doce clássico de festa com recheio de doce de leite.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/QUINDIM.jpg" alt="Quindim">
+    <h3>Quindim</h3>
+    <p>Doce de gema e coco, com brilho irresistível.</p>
+</div>
+<div class="produto">
+    <img src="assents/img/cupcake.jpg" alt="cupcake">
+    <h3>Cupcake</h3>
+    <p>Um mini bolo Delicioso, de massa branca com recheio de sua preferencia </p>
+</div>
+<div>
+    
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Depoimentos de Clientes -->
+<section class="depoimentos-carrosel">
+    <h2>Depoimentos de Clientes</h2>
+    <div class="carrosel-depoimentos">
+        <div class="depoimento ativo">
+            <p>"Os bolos são maravilhosos, sempre fresquinhos e com sabor incrível! Recomendo a todos."</p>
+            <span>- Ana Paula</span>
+        </div>
+        <div class="depoimento">
+            <p>"Atendimento excelente e doces finos de alta qualidade. Minha confeitaria favorita!"</p>
+            <span>- João Carlos</span>
+        </div>
+        <div class="depoimento">
+            <p>"A cheesecake de frutas vermelhas é simplesmente perfeita. Parabéns pelo trabalho!"</p>
+            <span>- Beatriz Souza</span>
+        </div>
+    </div>
+    <button class="depo-btn prev">&lt;</button>
+    <button class="depo-btn next">&gt;</button>
+</section>
+
+<!-- Formulário de Contato -->
+<section id="contact" class="contato">
+    <h2>Fale Conosco</h2>
+    <form id="form-contato">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="assunto">Assunto:</label>
+        <input type="text" id="assunto" name="assunto">
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="mensagem-sucesso" style="display:none; margin-top:20px; color:#ff8000; font-size:20px;">
+        Obrigado pelo contato! Sua mensagem foi enviada com sucesso.
     </div>
 </section>
 
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2025 Confeitaria Sempre Doce - Todos os direitos reservados</p>
+    </footer>
 
+    <script src="assents/js/index.js"></script>
 </body>
-<script src="assents/js/index.js"></script>
-<footer>
-    <div">
-        <p>&copy; 2024 Confeitaria Sempre Doce. Todos os direitos reservados.</p>
-    </div>
-</footer>
 </html>

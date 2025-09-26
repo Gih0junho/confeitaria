@@ -1,0 +1,91 @@
+/* Reset e fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik Bubbles", system-ui;
+}
+
+body {
+    background: linear-gradient(135deg, #fffbe6, #ffe0b2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #ff8000;
+    margin-bottom: 30px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-container label {
+    text-align: left;
+    font-weight: bold;
+    color: #7c4a00;
+    font-size: 16px;
+}
+
+.login-container input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.login-container button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ff8000;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-container button:hover {
+    background-color: #ffb347;
+    transform: scale(1.05);
+}
+
+.login-container p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-container p a {
+    color: #ff8000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media(max-width: 480px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+}
