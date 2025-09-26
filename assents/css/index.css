@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik Bubbles", system-ui;
+}
+
+body {
+    background-color: #fff0f6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #ffbb7f;
+    padding: 20px 0;
+   color: #fff;
+}
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+};
+nav{
+    text-align: center;
+    margin-top: 10px;
+}
+nav a {
+    text-decoration: none;
+    color: #ff8000;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 15px;
+    text-align: center;
+}
+
+nav ul li a:hover {
+    color: #ffe989;
+    text-decoration: underline;
+}
