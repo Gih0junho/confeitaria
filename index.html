@@ -149,31 +149,33 @@
     <button class="depo-btn next">&gt;</button>
 </section>
 
-<!-- Formulário de Contato -->
-<section id="cadastro" class="cadastro">
-    <h2>Cadastro</h2>
-    <form id="form-cadastro">
-        <label for="nome-cad">Nome:</label>
-        <input type="text" id="nome-cad" name="nome" required>
+<div class="contato">
+    <h2>Entre em Contato 🍬</h2>
+    <p style="margin-bottom:20px; color:#7c4a00;">
+        Tem alguma dúvida, pedido especial ou quer encomendar nossos doces? <br>
+    </p>
 
-        <label for="email-cad">E-mail:</label>
-        <input type="email" id="email-cad" name="email" required>
+    <form id="form-contato">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome-contato" name="nome" placeholder="Digite seu nome" required>
 
-        <label for="senha-cad">Senha:</label>
-        <input type="password" id="senha-cad" name="senha" required>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email-contato" name="email" placeholder="Digite seu e-mail" required>
 
-        <label for="senha2-cad">Confirme a Senha:</label>
-        <input type="password" id="senha2-cad" name="senha2" required>
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone-contato" name="telefone" placeholder="(DDD) 90000-0000">
 
-        <button type="submit">Registrar</button>
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem-contato" name="mensagem" rows="5" placeholder="Digite sua mensagem..." required></textarea>
+
+      <button type="submit">Enviar mensagem 🍭</button>
     </form>
-    <div id="erro-cadastro" style="display:none; color:#ff8000; margin-top:10px;">
-        As senhas não coincidem. Tente novamente.
+
+    <div id="msg-sucesso" style="display:none; color:#008000; margin-top:15px;">
+      ✅ Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.
     </div>
-    <div id="sucesso-cadastro" style="display:none; color:#008000; margin-top:10px;">
-        Cadastro realizado com sucesso!
-    </div>
-</section>
+</div>
+
 
     <!-- Rodapé -->
     <footer>

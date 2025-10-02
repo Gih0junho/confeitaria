@@ -65,3 +65,27 @@ document.getElementById('form-cadastro').onsubmit = function(e) {
         document.getElementById('form-cadastro').reset();
     }
 };
+
+//contato
+document.getElementById("form-contato").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const nome = document.getElementById("nome-contato").value.trim();
+  const email = document.getElementById("email-contato").value.trim();
+  const telefone = document.getElementById("telefone-contato").value.trim();
+  const mensagem = document.getElementById("mensagem-contato").value.trim();
+  const msgSucesso = document.getElementById("msg-sucesso");
+  const form = document.getElementById("form-contato");
+
+  if (!nome || !email || !mensagem) {
+    alert("Por favor, preencha todos os campos obrigatórios!");
+    return;
+  }
+
+  // Exibe mensagem de sucesso e esconde o formulário
+  form.style.display = "none";
+  msgSucesso.textContent = "✅ Sua mensagem foi enviada com sucesso! Fique atento ao nosso retorno.";
+  msgSucesso.style.display = "block";
+
+  console.log("Mensagem enviada:", { nome, email, telefone, mensagem });
+});
