@@ -26,8 +26,6 @@ function iniciarCarrossel() {
 
 window.onload = iniciarCarrossel;
 
-
-// ...existing code...
 // Carrossel de depoimentos
 const depoimentos = document.querySelectorAll('.depoimento');
 let depoIndex = 0;
@@ -50,10 +48,20 @@ document.querySelector('.depo-btn.next').onclick = function() {
 
 // Exibe o primeiro depoimento ao carregar
 mostrarDepoimento(depoIndex);
-// ...existing code...
-document.getElementById('form-contato').onsubmit = function(e) {
+
+document.getElementById('form-cadastro').onsubmit = function(e) {
     e.preventDefault();
-    document.getElementById('form-contato').style.display = 'none';
-    document.getElementById('mensagem-sucesso').style.display = 'block';
+    const senha = document.getElementById('senha-cad').value;
+    const senha2 = document.getElementById('senha2-cad').value;
+    const erro = document.getElementById('erro-cadastro');
+    const sucesso = document.getElementById('sucesso-cadastro');
+
+    if (senha !== senha2) {
+        erro.style.display = 'block';
+        sucesso.style.display = 'none';
+    } else {
+        erro.style.display = 'none';
+        sucesso.style.display = 'block';
+        document.getElementById('form-cadastro').reset();
+    }
 };
-// ...existing code...

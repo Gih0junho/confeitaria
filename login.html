@@ -12,16 +12,26 @@
 <body>
     <div class="login-container">
         <h1>Login</h1>
-        <form action="dashboard.html" method="POST">
+        <form id="form-login">
+            
+             <label for="nome">Nome:</label>
+            <input type="nome" id="nome" name="nome" placeholder="Digite seu Nome" required>
+
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
 
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
 
-            <button type="submit">Entrar</button>
+
+            <button id="btn-login" type="submit" href="index.html">Entrar</button>
+            <div id="circulo-login" class="circulo-login" style="display:none;"></div>
+       
         </form>
         <p>Não tem conta? <a href="register.html">Cadastre-se</a></p>
     </div>
+    
+   
 </body>
+<script src="assents/js/login.js"></script>
 </html>

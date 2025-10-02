@@ -48,10 +48,7 @@
     </p>
     <br>
     <p>
-        Nosso diferencial está na produção artesanal: utilizamos ingredientes frescos e selecionados, respeitando tradições e inovando com criatividade. Cada bolo, doce e sobremesa é feito com carinho, atenção aos detalhes e busca constante pela excelência.
-    </p><br>
-    <p>
-        Valorizamos o atendimento personalizado, ouvindo cada cliente para criar experiências únicas e saborosas. Nossa missão é adoçar a vida das pessoas, levando alegria, afeto e qualidade em cada produto.
+        Nosso diferencial está na produção artesanal: utilizamos ingredientes frescos e selecionados, respeitando tradições e inovando com criatividade.
     </p><br>
     <p>
         Venha conhecer a Sempre Doce e descubra como podemos tornar seu evento ainda mais especial. Aqui, cada doce conta uma história e cada cliente faz parte da nossa!
@@ -153,25 +150,28 @@
 </section>
 
 <!-- Formulário de Contato -->
-<section id="contact" class="contato">
-    <h2>Fale Conosco</h2>
-    <form id="form-contato">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+<section id="cadastro" class="cadastro">
+    <h2>Cadastro</h2>
+    <form id="form-cadastro">
+        <label for="nome-cad">Nome:</label>
+        <input type="text" id="nome-cad" name="nome" required>
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
+        <label for="email-cad">E-mail:</label>
+        <input type="email" id="email-cad" name="email" required>
 
-        <label for="assunto">Assunto:</label>
-        <input type="text" id="assunto" name="assunto">
+        <label for="senha-cad">Senha:</label>
+        <input type="password" id="senha-cad" name="senha" required>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        <label for="senha2-cad">Confirme a Senha:</label>
+        <input type="password" id="senha2-cad" name="senha2" required>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">Registrar</button>
     </form>
-    <div id="mensagem-sucesso" style="display:none; margin-top:20px; color:#ff8000; font-size:20px;">
-        Obrigado pelo contato! Sua mensagem foi enviada com sucesso.
+    <div id="erro-cadastro" style="display:none; color:#ff8000; margin-top:10px;">
+        As senhas não coincidem. Tente novamente.
+    </div>
+    <div id="sucesso-cadastro" style="display:none; color:#008000; margin-top:10px;">
+        Cadastro realizado com sucesso!
     </div>
 </section>
 

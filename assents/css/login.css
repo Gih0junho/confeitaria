@@ -89,3 +89,17 @@ body {
         padding: 30px 20px;
     }
 }
+
+.circulo-login {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff, #ae5700);
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
