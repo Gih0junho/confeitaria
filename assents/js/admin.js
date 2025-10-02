@@ -1,17 +1,26 @@
-function validarlogin() {
-    var email = document.getElementById("email-login").value;
-    var senha = document.getElementById("senha-login").value;}
+// Captura o envio do formulário
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    validarLogin();
+});
 
-    //acessar lista de usuarios
+function validarLogin() {
+    const cracha = document.getElementById("cracha").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+    const erroMsg = document.getElementById("erro");
+
+    // Pega os usuários cadastrados no localStorage
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    //verificar se o email e senha correspondem a um usuario cadastrado
-    const usuario = usuarios.find(function(usuario) {
-        return usuario.email === email && usuario.senha === senha;
-    });
+    // Verifica se existe um usuário com esse crachá e senha
+    // Aqui estou usando o email como crachá, caso queira usar outro campo, ajuste no cadastro
+    const usuario = usuarios.find(u => u.email === cracha && u.senha === senha);
 
-    //fazer o parse da lista de usuarios
-
-    lista = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-  
+    if (usuario) {
+        // Login correto: redireciona para painel.html (você pode criar seu dashboard)
+        window.location.href = "painel.html";
+    } else {
+        // Login incorreto: mostra mensagem de erro
+        erroMsg.textContent = "❌ Crachá ou senha incorretos!";
+    }
+}
