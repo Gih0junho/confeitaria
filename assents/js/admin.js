@@ -1,4 +1,3 @@
-// Captura o envio do formulário
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
     validarLogin();
@@ -9,18 +8,14 @@ function validarLogin() {
     const senha = document.getElementById("senha").value.trim();
     const erroMsg = document.getElementById("erro");
 
-    // Pega os usuários cadastrados no localStorage
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    // Credenciais fixas
+    const crachaValido = "60099443";     // Número do crachá específico
+    const senhaValida = "senaidev";  // Senha específica
 
-    // Verifica se existe um usuário com esse crachá e senha
-    // Aqui estou usando o email como crachá, caso queira usar outro campo, ajuste no cadastro
-    const usuario = usuarios.find(u => u.email === cracha && u.senha === senha);
-
-    if (usuario) {
-        // Login correto: redireciona para painel.html (você pode criar seu dashboard)
-        window.location.href = "painel.html";
-    } else {
-        // Login incorreto: mostra mensagem de erro
+    // Verifica se os dados correspondem aos valores fixos
+    if (cracha === crachaValido && senha === senhaValida) {
+        window.location.href = "../pages/home_admi.html";
+    } else { 
         erroMsg.textContent = "❌ Crachá ou senha incorretos!";
     }
 }
