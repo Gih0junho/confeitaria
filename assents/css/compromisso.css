@@ -1,0 +1,58 @@
+* {
+    font-family: "Akaya Kanadaka", system-ui;
+    font-optical-sizing: auto;
+    color: #7f9ac8;
+}
+
+body{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(191, 209, 241);
+    color: #7f9cc8;
+}
+
+h1 {
+    margin-top: 50px; 
+    color: #7fbbc8;
+}
+
+input{
+    height: 30px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input[type="text"]{
+    width: 610px;
+}
+
+input[type="time"]{
+    width: 300px;
+}
+
+input[type="date"]{
+    width: 300px;
+}
+
+button{
+    color: #5a91ff;
+    background-color: #d3d9ff;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.link-agenda{
+    text-decoration: none;
+    font-size: 30px;
+    color: #807fc8;
+}
+
+.link-agenda:hover{
+    text-decoration: dashed;
+    cursor: pointer;
+    color: #d3e2ff;
+}
