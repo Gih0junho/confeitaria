@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reserva de Produtos - Sempre Doce</title>
+  <link rel="stylesheet" href="/assents/css/reserva.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="titulo-central">Reserve seu Doce 🍬</h1>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Início</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+<script>
+  const logado = localStorage.getItem("usuarioLogado");
+
+  if (!logado || logado !== "true") {
+    // Se não estiver logado, manda para a página de login
+    window.location.href = "login.html";
+  }
+</script>
+
+  <section class="reserva" id="reserva">
+    <h2>Formulário de Reserva</h2>
+    <form id="form-reserva">
+      <label for="nome-reserva">Nome:</label>
+      <input type="text" id="nome-reserva" name="nome" required>
+
+      <label for="produto-reserva">Produto:</label>
+      <input type="text" id="produto-reserva" name="produto" required>
+
+      <label for="quantidade-reserva">Quantidade:</label>
+      <input type="number" id="quantidade-reserva" name="quantidade" min="1" required>
+
+      <label for="data-reserva">Data da Retirada:</label>
+      <input type="date" id="data-reserva" name="data" required>
+
+      <label for="telefone-reserva">Telefone:</label>
+      <input type="tel" id="telefone-reserva" name="telefone" placeholder="(DDD) 90000-0000" required>
+
+      <label for="comentarios-reserva">Comentários:</label>
+      <textarea id="comentarios-reserva" name="comentarios" rows="4"></textarea>
+
+      <button type="submit">Enviar Reserva 🍰</button>
+    </form>
+
+    <div id="msg-reserva" style="display:none; color:green; margin-top:15px;">
+      ✅ Sua reserva foi enviada com sucesso!
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Confeitaria Sempre Doce - Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    document.getElementById("form-reserva").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const reserva = {
+        nome: document.getElementById("nome-reserva").value.trim(),
+        produto: document.getElementById("produto-reserva").value.trim(),
+        quantidade: document.getElementById("quantidade-reserva").value.trim(),
+        data: document.getElementById("data-reserva").value,
+        telefone: document.getElementById("telefone-reserva").value.trim(),
+        comentarios: document.getElementById("comentarios-reserva").value.trim()
+      };
+
+      let reservas = JSON.parse(localStorage.getItem("reservas") || "[]");
+      reservas.push(reserva);
+      localStorage.setItem("reservas", JSON.stringify(reservas));
+
+      document.getElementById("form-reserva").reset();
+      document.getElementById("msg-reserva").style.display = "block";
+    });
+  </script>
+</body>
+</html>

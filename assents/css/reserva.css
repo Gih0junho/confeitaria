@@ -1,0 +1,134 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik Bubbles", system-ui;
+}
+
+body {
+  background-color: #fffbe6;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #ffb347, #ffcc70);
+  padding: 30px 0;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: #fffbe6;
+  margin-bottom: 15px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #fffbe6;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #ff8000;
+  text-decoration: underline;
+}
+
+/* Seção de Reserva */
+.reserva {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 30px;
+  max-width: 600px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.reserva h2 {
+  font-family: 'Playfair Display', serif;
+  color: #ff8000;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+.reserva form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reserva label {
+  font-size: 16px;
+  color: #7c4a00;
+  text-align: left;
+}
+
+.reserva input,
+.reserva textarea {
+  padding: 10px;
+  border: 1px solid #ffbb7f;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.reserva button {
+  background-color: #ffbb7f;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reserva button:hover {
+  background-color: #ff8000;
+}
+
+/* Mensagem de sucesso */
+#msg-reserva {
+  font-size: 16px;
+  color: green;
+  margin-top: 15px;
+}
+
+/* Footer */
+footer {
+  background-color: #ffb347;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .reserva {
+    width: 90%;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 36px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

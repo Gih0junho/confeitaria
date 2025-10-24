@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confeitaria Sempre Doce</title>
-    <link rel="stylesheet" href="../assents/css/index.css">
+    <link rel="stylesheet" href="/assents/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&family=Rubik+Bubbles&display=swap" rel="stylesheet">
@@ -18,7 +18,17 @@
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="#products">Produtos</a></li>
                 <li><a href="#contact">Contato</a></li>
+              
             </ul>
+          
+
+<script>
+  function logout() {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "pages/login.html";
+  }
+</script>
+
         </nav>
         <!-- Botões no canto superior direito -->
     <div class="header-botoes">
@@ -121,14 +131,18 @@
     <h3>Cupcake</h3>
     <p>Um mini bolo Delicioso, de massa branca com recheio de sua preferencia </p>
 </div>
-<div>
-    
 </div>
-            </div>
+    </div>
         </div>
     </section>
 
-    <!-- Seção de Depoimentos de Clientes -->
+<div class="botao-centralizado">
+  <a href="../pages/reserva.html">
+    <button class="bnt-reserva">Reservar</button>
+  </a>
+</div>
+
+<!-- Seção de Depoimentos de Clientes -->
 <section class="depoimentos-carrosel">
     <h2>Depoimentos de Clientes</h2>
     <div class="carrosel-depoimentos">
@@ -149,7 +163,7 @@
     <button class="depo-btn next">&gt;</button>
 </section>
 
-<div class="contato">
+<!--<div class="contato">
     <h2>Entre em Contato 🍬</h2>
     <p style="margin-bottom:20px; color:#7c4a00;">
         Tem alguma dúvida, pedido especial ou quer encomendar nossos doces? <br>
@@ -174,7 +188,7 @@
     <div id="msg-sucesso" style="display:none; color:#008000; margin-top:15px;">
       ✅ Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.
     </div>
-</div>
+</div> -->
 
 
     <!-- Rodapé -->

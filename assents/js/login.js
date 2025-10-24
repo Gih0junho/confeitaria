@@ -36,3 +36,8 @@ document.getElementById('form-login').onsubmit = function(e) {
         }
     }, 1500); // tempo do carregamento
 };
+
+
+// Depois que o login for validado com sucesso
+localStorage.setItem("usuarioLogado", "true");
+window.location.href = "../pages/reserva.html"; // leva para a página de reserva

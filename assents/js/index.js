@@ -82,10 +82,4 @@ document.getElementById("form-contato").addEventListener("submit", function(e){
     return;
   }
 
-  // Exibe mensagem de sucesso e esconde o formulário
-  form.style.display = "none";
-  msgSucesso.textContent = "✅ Sua mensagem foi enviada com sucesso! Fique atento ao nosso retorno.";
-  msgSucesso.style.display = "block";
-
-  console.log("Mensagem enviada:", { nome, email, telefone, mensagem });
-});
+})

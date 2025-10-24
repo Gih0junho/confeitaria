@@ -28,6 +28,23 @@
             <div id="circulo-login" class="circulo-login" style="display:none;"></div>
        
         </form>
+        <script>
+  document.getElementById("form-login").addEventListener("submit", function(e) {
+    e.preventDefault(); // impede o envio padrão
+
+    // Aqui você pode validar o login (exemplo simples)
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+
+    if (email && senha) {
+      // Simula login bem-sucedido
+      localStorage.setItem("usuarioLogado", "true");
+      window.location.href = "../pages/reserva.html"; // redireciona para a página de reserva
+    } else {
+      alert("Preencha os campos corretamente!");
+    }
+  });
+</script>
         <p>Não tem conta? <a href="register.html">Cadastre-se</a></p>
     </div>
     
