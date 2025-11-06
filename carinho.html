@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria Sempre Doce</title>
+    <link rel="stylesheet" href="assents/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&family=Rubik+Bubbles&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* === SEU CSS ORIGINAL (já incluso) === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Rubik Bubbles", system-ui;
+        }
+
+        body {
+            background-color: #fffbe6;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #ffb347, #ffcc70);
+            padding: 30px 0;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            color: #fffbe6;
+            margin-bottom: 20px;
+        }
+
+        /* === PÁGINA DE FINALIZAÇÃO === */
+        .finalizar-compra {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resumo-carrinho,
+        .pagamento {
+            background: #fff;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .resumo-carrinho h2,
+        .pagamento h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ff8000;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .item-resumo {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ffcc70;
+            font-size: 16px;
+        }
+
+        .total-resumo {
+            font-weight: bold;
+            font-size: 20px;
+            color: #ff8000;
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        /* Opções de pagamento */
+        .opcoes-pagamento {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .opcao-pag {
+            padding: 12px 20px;
+            background: #fff;
+            border: 2px solid #ffbb7f;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            color: #7c4a00;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        mdi {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .opcao-pag.ativo,
+        .opcao-pag:hover {
+            background: #ffcc70;
+            border-color: #ff8000;
+            color: #fff;
+        }
+
+        /* Formulários de pagamento */
+        .form-pagamento {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .form-pagamento.ativo {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #7c4a00;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ffbb7f;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .pix-qrcode {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .pix-qrcode img {
+            width: 180px;
+            height: 180px;
+            border: 2px solid #ffcc70;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .pix-chave {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            word-break: break-all;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .boleto-info {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ff8000;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #7c4a00;
+        }
+
+        .btn-finalizar-compra {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+
+        .btn-finalizar-compra:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .finalizar-compra {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            .opcoes-pagamento {
+                flex-direction: column;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #bnt-voltar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ff8000;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Finalizar Compra</h1>
+    <button id="bnt-voltar"><a href="index.html">Voltar</a></button>
+       
+    </header>
+
+    <div class="container">
+        <div class="finalizar-compra">
+
+            <!-- RESUMO DO CARRINHO (DINÂMICO) -->
+            <div class="resumo-carrinho">
+                <h2>Resumo do Pedido</h2>
+                <div id="itens-carrinho">
+                    <!-- Itens serão inseridos aqui via JS -->
+                </div>
+                <div class="total-resumo" id="total-pedido">
+                    Carregando...
+                </div>
+            </div>
+
+            <!-- PAGAMENTO -->
+            <div class="pagamento">
+                <h2>Método de Pagamento</h2>
+
+                <!-- Opções -->
+                <div class="opcoes-pagamento">
+                    <div class="opcao-pag ativo" data-pag="cartao">
+                        <span>💳</span> Cartão
+                    </div>
+                    <div class="opcao-pag" data-pag="boleto">
+                        <span>📄</span> Boleto
+                    </div>
+                    <div class="opcao-pag" data-pag="pix">
+                        <span>🔑</span> Pix
+                    </div>
+                </div>
+
+                <!-- Formulário Cartão -->
+                <div class="form-pagamento ativo" id="form-cartao">
+                    <div class="form-group">
+                        <label>Número do Cartão</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nome no Cartão</label>
+                        <input type="text" placeholder="Maria Silva" />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Validade</label>
+                            <input type="text" placeholder="MM/AA" maxlength="5" />
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="3" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário Boleto -->
+                <div class="form-pagamento" id="form-boleto">
+                    <div class="boleto-info">
+                        <p><strong>Boleto gerado após a confirmação.</strong></p>
+                        <p>Vencimento: <strong>2 dias úteis</strong></p>
+                        <p>Você receberá o boleto por e-mail.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>CPF (para emissão)</label>
+                        <input type="text" placeholder="000.000.000-00" />
+                    </div>
+                </div>
+
+                <!-- Formulário Pix -->
+                <div class="form-pagamento" id="form-pix">
+                    <div class="pix-qrcode">
+                        <p><strong>Escaneie o QR Code</strong></p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=00020126580014BR.GOV.BCB.PIX0114+55119999999990208Doce Lar520400005303986540593.005802BR5925Doce Lar Doces e Bolos6009São Paulo62070503***6304A1B2"
+                            alt="QR Code Pix" />
+                        <div class="pix-chave">
+                            +55 19 98160-2404
+                        </div>
+                        <p style="margin-top: 10px; font-size: 14px; color: #ff8000;">
+                            Chave Pix: <strong>Telefone</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <button class="btn-finalizar-compra">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+  // === CARREGAR E EXIBIR CARRINHO DO LOCALSTORAGE ===
+  function carregarResumoCarrinho() {
+    const itensContainer = document.getElementById('itens-carrinho');
+    const totalElement = document.getElementById('total-pedido');
+    
+    if (!itensContainer || !totalElement) {
+      console.error("Elementos #itens-carrinho ou #total-pedido não encontrados.");
+      return;
+    }
+
+    // Lê o carrinho do localStorage
+    let carrinho = [];
+    try {
+      const data = localStorage.getItem('carrinho');
+      carrinho = data ? JSON.parse(data) : [];
+    } catch (e) {
+      console.error("Erro ao ler localStorage:", e);
+      carrinho = [];
+    }
+
+    // Limpa o container
+    itensContainer.innerHTML = '';
+
+    if (!Array.isArray(carrinho) || carrinho.length === 0) {
+      itensContainer.innerHTML = '<p style="text-align:center; color:#999; font-style:italic; padding: 20px 0;">Seu carrinho está vazio.</p>';
+      totalElement.innerHTML = 'Total: <strong>R$ 0,00</strong>';
+      window.totalCompra = 0;
+      return;
+    }
+
+    let subtotal = 0;
+    const frete = 12.00; // Pode ser dinâmico depois
+
+    carrinho.forEach(item => {
+      if (!item.nome || !item.preco || !item.quantidade) return;
+
+      const precoTotalItem = parseFloat(item.preco) * parseInt(item.quantidade);
+      subtotal += precoTotalItem;
+
+      const div = document.createElement('div');
+      div.className = 'item-resumo';
+      div.innerHTML = `
+        <span>${item.nome} (${item.quantidade}x)</span>
+        <span>R$ ${precoTotalItem.toFixed(2).replace('.', ',')}</span>
+      `;
+      itensContainer.appendChild(div);
+    });
+
+    // Linha de frete
+    const divFrete = document.createElement('div');
+    divFrete.className = 'item-resumo';
+    divFrete.innerHTML = `
+      <span>Frete (Entrega Rápida)</span>
+      <span>R$ ${frete.toFixed(2).replace('.', ',')}</span>
+    `;
+    itensContainer.appendChild(divFrete);
+
+    // Total
+    const total = subtotal + frete;
+    window.totalCompra = total;
+
+    totalElement.innerHTML = `
+      Total: <strong>R$ ${total.toFixed(2).replace('.', ',')}</strong>
+    `;
+  }
+
+  // === TROCA DE MÉTODO DE PAGAMENTO ===
+  document.querySelectorAll('.opcao-pag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove classe ativo de todos
+      document.querySelectorAll('.opcao-pag').forEach(b => b.classList.remove('ativo'));
+      // Adiciona no clicado
+      btn.classList.add('ativo');
+
+      // Esconde todos os forms
+      document.querySelectorAll('.form-pagamento').forEach(f => f.classList.remove('ativo'));
+      // Mostra o correto
+      const target = btn.getAttribute('data-pag');
+      const form = document.getElementById(`form-${target}`);
+      if (form) form.classList.add('ativo');
+    });
+  });
+
+  // === MÁSCARA PARA NÚMERO DO CARTÃO ===
+  const cardInput = document.querySelector('#form-cartao input[placeholder*="1234"]');
+  if (cardInput) {
+    cardInput.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, ''); // Remove não números
+      v = v.replace(/(\d{4})(?=\d)/g, '$1 ');   // Adiciona espaço a cada 4
+      e.target.value = v.slice(0, 19);          // Limita a 16 dígitos + 3 espaços
+    });
+  }
+
+  // === MÁSCARA PARA VALIDADE (MM/AA) ===
+  const validadeInput = document.querySelector('#form-cartao input[placeholder="MM/AA"]');
+  if (validadeInput) {
+    validadeInput.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 2) {
+        v = v.slice(0, 2) + '/' + v.slice(2, 4);
+      }
+      e.target.value = v;
+    });
+  }
+
+  // === BOTÃO FINALIZAR COMPRA ===
+  const btnFinalizar = document.querySelector('.btn-finalizar-compra');
+  if (btnFinalizar) {
+    btnFinalizar.addEventListener('click', () => {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const metodo = document.querySelector('.opcao-pag.ativo')?.getAttribute('data-pag') || 'indefinido';
+
+      if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio! Adicione itens antes de finalizar.');
+        return;
+      }
+
+      // Validação básica por método
+      if (metodo === 'cartao') {
+        const numero = document.querySelector('#form-cartao input[placeholder*="1234"]')?.value.trim();
+        const nome = document.querySelector('#form-cartao input[placeholder="Maria Silva"]')?.value.trim();
+        const validade = document.querySelector('#form-cartao input[placeholder="MM/AA"]')?.value.trim();
+        const cvv = document.querySelector('#form-cartao input[placeholder="123"]')?.value.trim();
+
+        if (!numero || !nome || !validade || !cvv) {
+          alert('Preencha todos os dados do cartão.');
+          return;
+        }
+      }
+
+      if (metodo === 'boleto') {
+        const cpf = document.querySelector('#form-boleto input')?.value.trim();
+        if (!cpf || cpf.length < 11) {
+          alert('Digite um CPF válido para o boleto.');
+          return;
+        }
+      }
+
+      // Simulação de sucesso
+      const totalFormatado = window.totalCompra?.toFixed(2).replace('.', ',') || '0,00';
+
+      alert(`Compra finalizada com sucesso via ${metodo.toUpperCase()}!\nTotal: R$ ${totalFormatado}\n\nVocê receberá a confirmação por e-mail.`);
+
+      // Limpa o carrinho
+      localStorage.removeItem('carrinho');
+      carregarResumoCarrinho();
+
+      // Opcional: redirecionar
+      // setTimeout(() => location.href = 'obrigado.html', 1500);
+    });
+  }
+
+  // === EXECUTA AO CARREGAR A PÁGINA ===
+  document.addEventListener('DOMContentLoaded', () => {
+    carregarResumoCarrinho();
+
+    // Garante que o primeiro método (cartão) esteja ativo
+    const primeiroBotao = document.querySelector('.opcao-pag');
+    if (primeiroBotao && !document.querySelector('.opcao-pag.ativo')) {
+      primeiroBotao.click();
+    }
+  });
+</script>
+</body>
+
+</html>
